@@ -8,7 +8,9 @@ class Compte {
     private int $_soldeIni;
     private string $_devise;
     private Titulaire $_titulaire;
-    
+
+    private int $_crediter = 0;
+
 
     // Constructeurs
 
@@ -17,6 +19,7 @@ class Compte {
         $this->_soldeIni = $soldeIni;
         $this->_devise = $devise;
         $this->_titulaire = $titulaire;
+        $this->_crediter;
         }
 
     // Getter et Setter
@@ -65,11 +68,30 @@ class Compte {
         return $this;
     }
 
+    public function getCrediter() : int
+    { 
+        return $this->_crediter;
+    }
+
+    public function setCrediter($crediter) : int 
+    {
+        $this->_crediter = $crediter;
+        return $this->_crediter;
+    }
+
     // toString
 
     public function __toString() : string 
     { 
     return $this->_libelle;
     } 
+
+    // Crediter un compte
+
+    public function crediterCompte() : int 
+    {
+        $result = $this->_soldeIni + $this->_crediter;
+        return $result;
+    }
 
 }   
