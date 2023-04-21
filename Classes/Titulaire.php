@@ -8,6 +8,7 @@ class Titulaire {
     private string $_prenom;
     private string $_ville;
     private DateTime $_dateNaissance;
+    private array $_comptes;
 
     // Constructeur
 
@@ -16,6 +17,7 @@ class Titulaire {
         $this->_prenom = $prenom;
         $this->_ville = $ville;
         $this->_dateNaissance = new DateTime ($dateNaissance);
+        $this->_comptes = [];
     }
 
     // Getter et Setter
@@ -63,11 +65,28 @@ class Titulaire {
         $this->_dateNaissance = $dateNaissance;
         return $this;
     }
+    
+    public function getComptes() : array 
+    {
+        return $this->_comptes;
+    }
+
+    public function setComptes() : array 
+    {
+        $this->_comptes = $comptes;
+        return $this;
+    }
 
     // ToString
 
     public function __toString(){
         return $this->_prenom." ".$this->_nom;
+    }
+
+    // ajouter un compte 
+
+    public function addCompte(Compte $compte){
+        $this->_comptes[] = $compte;
     }
 
     // Méthodes information du titulaire

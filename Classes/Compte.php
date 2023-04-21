@@ -1,6 +1,6 @@
 <?php
 
-class Comptes {
+class Compte {
 
     // Arguments
 
@@ -8,6 +8,7 @@ class Comptes {
     private int $_soldeIni;
     private string $_devise;
     private Titulaire $_titulaire;
+    
 
     // Constructeurs
 
@@ -70,9 +71,5 @@ class Comptes {
     { 
     return $this->_libelle;
     } 
-
-    public function getInfos(){
-        return $this." née le ".$this->getDateNaissance()->format('d/m/Y')." habitant dans la ville de ".$this->getVille()." possede .".$this->Titulaire;
-    }
 
 }   
