@@ -10,6 +10,7 @@ $titu1 = new Titulaire ("Anthony", "Galland", "Strasbourg","15-02-1991");
 $compte1 = new Compte ("Livret A", 100, "euros", $titu1);
 $compte2 = new Compte ("PEL", 3000, "euros", $titu1);
 
-$compte1->setCrediter(200);
-echo $compte1->getCrediter()."</br>";
-echo $compte1->crediterCompte();
+echo $compte1->getSoldeIni();
+$compte1->setCrediter(50);
+$compte1->getSoldeEnCour();
+
