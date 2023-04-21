@@ -12,6 +12,10 @@ $compte2 = new Compte ("PEL", 3000, "euros", $titu1);
 
 echo $compte1->getSoldeIni()."<br>";
 $compte1->setCrediter(50);
-$compte1->crediterCompte();
-echo $compte1->getSoldeEnCour();
+echo $compte1->crediterCompte()."</br>";
+$compte1->setDebiter(50);
+echo $compte1->debiterCompte()."</br>";
+$compte1->setCrediter(200);
+echo $compte1->crediterCompte()."</br>";
+
 

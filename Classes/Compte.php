@@ -11,7 +11,7 @@ class Compte {
 
     private int $_crediter = 0;
     private int $_debiter = 0;
-    private int $_soldeEnCour;
+    // private int $_soldeEnCour;
 
 
     // Constructeurs
@@ -23,7 +23,7 @@ class Compte {
         $this->_titulaire = $titulaire;
         $this->_crediter;
         $this->_debiter;
-        $this->_soldeEnCour = getCrediter() + getDebiter();
+        // $this->_soldeEnCour = getCrediter() + getDebiter();
         }
 
     // Getter et Setter
@@ -94,7 +94,7 @@ class Compte {
         return $this->_debiter;
     }
 
-    public function getSoldeEnCour() : int
+   /* public function getSoldeEnCour() : int
     { 
         return $this->_soldeEnCour;
     }
@@ -103,7 +103,7 @@ class Compte {
     {
         $this->_soldeEnCour = $soldeEnCour;
         return $this->_soldeEnCour;
-    }
+    }*/
 
     // toString
 
@@ -117,7 +117,7 @@ class Compte {
     public function crediterCompte() : int 
     {
         $result = $this->_soldeIni + $this->_crediter;
-        return $result;
+        return $result = $this->_soldeIni;
     }
 
     // Debiter un compte
@@ -125,6 +125,6 @@ class Compte {
     public function debiterCompte() : int 
     {
         $result = $this->_soldeIni - $this->_debiter;
-        return $result;
+        return $result = $this->_soldeIni;
     }
 }   
