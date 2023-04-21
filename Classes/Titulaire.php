@@ -15,43 +15,51 @@ class Titulaire {
         $this->_nom = $nom ;
         $this->_prenom = $prenom;
         $this->_ville = $ville;
-        $this->_dateNaissance = new DateTime($dateNaissance);
+        $this->_dateNaissance = new DateTime ($dateNaissance);
     }
 
     // Getter et Setter
 
-    public function getNom(){
+    public function getNom() : string 
+    {
         return $this->_nom;
     }
 
-    public function setNom($nom){
+    public function setNom($nom) : string 
+    {
         $this->_nom = $nom;
         return $this;
     }
 
-    public function getPrenom(){
+    public function getPrenom() : string 
+    {
         return $this->_prenom;
     }
 
-    public function setPrenom($prenom){
+    public function setPrenom($prenom) : string 
+    {
         $this->_prenom = $prenom;
         return $this;
     }
 
-    public function getVille(){
+    public function getVille() : string 
+    {
         return $this->_ville;
     }
 
-    public function setVille(){
+    public function setVille() : string 
+    {
         $this->_nom = $ville;
         return $this;
     }
     
-    public function getDateNaissance(){
+    public function getDateNaissance() : DateTime 
+    {
         return $this->_dateNaissance;
     }
 
-    public function setDateNaissance(){
+    public function setDateNaissance() : DateTime 
+    {
         $this->_dateNaissance = $dateNaissance;
         return $this;
     }
@@ -62,7 +70,11 @@ class Titulaire {
         return $this->_prenom." ".$this->_nom;
     }
 
+    // Méthodes information du titulaire
 
+    public function getInfos(){
+        return $this." née le ".$this->getDateNaissance()->format('d/m/Y')." habitant dans la ville de ".$this->getVille()." possede .".$this->Titulaire;
+    }
 
 
 }
