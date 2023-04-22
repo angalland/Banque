@@ -92,8 +92,19 @@ class Titulaire {
     // Méthodes information du titulaire
 
     public function getInfos(){
-        return $this." née le ".$this->getDateNaissance()->format('d/m/Y')." habitant dans la ville de ".$this->getVille()." possede .".$this->Titulaire;
+        echo $this." agée de ".$this->age()." ans habitant dans la ville de ".$this->_ville." possede ";
+        foreach ($this->_comptes as $compte){
+            echo $compte." ";
+        }
     }
 
+    public function age(){
+    $today = new DateTime();
+    // $birth_date = DateTime::createFromFormat('d/m/Y', $this->_dateNaissance->format('d/m/Y'));
 
+
+    $diff = $today->diff($this->_dateNaissance);
+    
+    return $diff->y;
+    }
 }

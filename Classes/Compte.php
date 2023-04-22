@@ -90,4 +90,9 @@ class Compte {
         $this->debiterCompte($montant);
         $compte->crediterCompte($montant);
     }
+
+    public function infoComptes() {
+        echo "</br>". $this->_titulaire." :</br>".
+        $this." ".$this->_solde." ".$this->_devise;
+    }
 }   

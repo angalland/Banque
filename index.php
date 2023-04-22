@@ -22,6 +22,9 @@ $compte2->virement($compte1, 100);
 echo $compte2->getSolde()."</br>";
 echo $compte1->getSolde()."</br>";
 
+$titu1->getInfos()."</br>";
+$compte1 ->InfoComptes()."</br>";
+
 
 
 
