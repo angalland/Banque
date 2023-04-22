@@ -5,25 +5,18 @@ class Compte {
     // Arguments
 
     private string $_libelle;
-    private int $_soldeIni;
+    private int $_solde;
     private string $_devise;
     private Titulaire $_titulaire;
 
-    private int $_crediter = 0;
-    private int $_debiter = 0;
-    // private int $_soldeEnCour;
-
-
     // Constructeurs
 
-    public function __construct(string $libelle, int $soldeIni, string $devise, Titulaire $titulaire ){
+    public function __construct(string $libelle, int $solde, string $devise, Titulaire $titulaire ){
         $this->_libelle = $libelle;
-        $this->_soldeIni = $soldeIni;
+        $this->_solde = $solde;
         $this->_devise = $devise;
         $this->_titulaire = $titulaire;
-        $this->_crediter;
-        $this->_debiter;
-        // $this->_soldeEnCour = getCrediter() + getDebiter();
+        $titulaire->addCompte($this);
         }
 
     // Getter et Setter
@@ -33,21 +26,21 @@ class Compte {
       return $this->_libelle ;
     }
 
-    public function setlibelle() : string
+    public function setlibelle($libelle) 
     { 
         $this->_libelle = $libelle;
-        return $this;
+        
     }
 
-    public function getSoldeIni() : int 
+    public function getSolde() : int 
     { 
-        return $this->_soldeIni;
+        return $this->_solde;
     }
 
-    public function setSoldeIni() : int 
+    public function setSolde($solde)  
     {
-        $this->_soldeIni = $soldeIni;
-        return $this;
+        $this->_solde = $solde;
+        
     }
 
     public function getDevise() : string 
@@ -55,10 +48,10 @@ class Compte {
         return $this->_devise;
     }
 
-    public function setDevise() : string 
+    public function setDevise($devise)  
     { 
         $this->_devise = $devise;
-        return $this;
+        
     }
 
     public function getTitulaire() : Titulaire 
@@ -66,45 +59,13 @@ class Compte {
         return $this->_titulaire;
     }
 
-    public function setTitulaire() : Titulaire 
+    public function setTitulaire($titulaire)
     {
         $this->_titulaire = $titulaire;
-        return $this;
+        
     }
 
-    public function getCrediter() : int
-    { 
-        return $this->_crediter;
-    }
-
-    public function setCrediter($crediter) : int 
-    {
-        $this->_crediter = $crediter;
-        return $this->_crediter;
-    }
-
-    public function getDebiter() : int
-    { 
-        return $this->_debiter;
-    }
-
-    public function setDebiter($debiter) : int 
-    {
-        $this->_debiter = $debiter;
-        return $this->_debiter;
-    }
-
-   /* public function getSoldeEnCour() : int
-    { 
-        return $this->_soldeEnCour;
-    }
-
-    public function setSoldeEnCour($soldeEnCour) : int 
-    {
-        $this->_soldeEnCour = $soldeEnCour;
-        return $this->_soldeEnCour;
-    }*/
-
+    
     // toString
 
     public function __toString() : string 
@@ -114,17 +75,19 @@ class Compte {
 
     // Crediter un compte
 
-    public function crediterCompte() : int 
+    public function crediterCompte($crediter) 
     {
-        $result = $this->_soldeIni + $this->_crediter;
-        return $result = $this->_soldeIni;
+        $this->_solde += $crediter;
     }
 
     // Debiter un compte
 
-    public function debiterCompte() : int 
-    {
-        $result = $this->_soldeIni - $this->_debiter;
-        return $result = $this->_soldeIni;
+    public function debiterCompte($debiter)  { 
+        $this->_solde -= $debiter; 
+    }
+
+    public function virement(Compte $compte, int $montant){
+        $this->debiterCompte($montant);
+        $compte->crediterCompte($montant);
     }
 }   
