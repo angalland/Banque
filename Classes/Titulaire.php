@@ -79,32 +79,38 @@ class Titulaire {
 
     // ToString
 
-    public function __toString(){
+    public function __toString() : string 
+    {
         return $this->_prenom." ".$this->_nom;
     }
 
     // ajouter un compte 
 
-    public function addCompte(Compte $compte){
+    public function addCompte(Comptes $compte) 
+    {
         $this->_comptes[] = $compte;
     }
 
     // Méthodes information du titulaire
 
-    public function getInfos(){
-        echo $this." agée de ".$this->age()." ans habitant dans la ville de ".$this->_ville." possede ";
+    public function getInfos()
+    {
+        echo $this." agée de ".$this->age()." ans habitant dans la ville de ".$this->_ville." possede un ";
         foreach ($this->_comptes as $compte){
             echo $compte." ";
         }
     }
 
-    public function age(){
+    // Calcule age
+
+    public function age()
+    {
     $today = new DateTime();
-    // $birth_date = DateTime::createFromFormat('d/m/Y', $this->_dateNaissance->format('d/m/Y'));
-
-
     $diff = $today->diff($this->_dateNaissance);
-    
     return $diff->y;
     }
 }
+   
+
+
+    

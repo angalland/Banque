@@ -1,6 +1,6 @@
 <?php
 
-class Compte {
+/*class Compte {
 
     // Arguments
 
@@ -95,4 +95,4 @@ class Compte {
         echo "</br>". $this->_titulaire." :</br>".
         $this." ".$this->_solde." ".$this->_devise;
     }
-}   
+}  */
